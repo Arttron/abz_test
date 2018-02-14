@@ -1,0 +1,21 @@
+.advertisement{
+    margin-top: 17px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #C7CDD9;
+    &__header{
+       color: #7c8695;
+       font-size: 14px;
+    }
+    &__banner{
+       margin: 16px 0 8px;
+       display: block;
+       img{
+          margin: 0;
+          display: block;
+       }
+    }
+    &__text{
+       color: #d3d3d3;
+       font-size: 11px;
+    }
+ }

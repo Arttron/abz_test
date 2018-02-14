@@ -1,0 +1,35 @@
+.menu{
+    list-style: none;
+     &__item{
+         border-bottom: 1px solid #C7CDD9;
+          padding: 12.5px 0;
+        &:hover{
+        .menu__link{
+          color: #87B448;
+        }
+        .menu__icon-svg{
+           fill:#87B448;
+           stroke:#87B448;
+        }
+     }
+     }
+     &__link{
+          display: inline-block;
+        color: #59606b;
+         text-decoration: none;
+         vertical-align: bottom;
+         line-height: 25px;
+          margin-left: 18px;
+        transition: color, 300ms;
+ 
+     }
+     &__icon-svg{
+        display: inline-block;
+        vertical-align: bottom;
+        margin: 0;
+        width: 25px;
+        height: 25px;
+        fill:#C7CDD9;
+        stroke:#C7CDD9;
+     }
+ }

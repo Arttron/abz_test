@@ -1,0 +1,93 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 67px;
+    padding-left: 20px;
+    padding-top: 4px; 
+    &__logo{
+      //height: 43px;
+      width: auto;
+      margin-top: 7px;
+      margin-left: 14px;
+   }
+    &__icon{
+        width: 100px;
+        margin-left: 4px;
+        padding-top: 10px;
+    }
+    &__icon-svg{
+        margin: 0 9px; 
+        height: 25px;
+        width: 25px;
+        fill: white;
+        margin-top: 7px;
+        display: inline-block;
+    }
+    &__login-user{
+        //width: 200px;
+        display: flex;
+        margin-left: 12px;
+        margin-top: 15px;
+
+       .login-user__avatar{
+            display: block;
+            background: url('../../img/user/user_pic.png') no-repeat;
+            background-size: 107%;
+            background-position: center;
+            width: 32px;
+            height: 32px;
+            
+        }
+        .login-user__name{
+            line-height: 25px;
+            padding-left: 11px;
+            padding-top: 3px;
+            color: white;
+            font-size: 16px;
+        }
+    }
+       
+   .search__input{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgba(0,0,0, .2);
+        border-radius: 3px;
+        width: 32vw;
+        max-width: 435px;
+        min-width: 294px;
+        padding: 3px 0px 4px 0px;
+        margin: 14px 14px 0 32px;
+
+      input{
+         width: calc(100% - 40px);
+         outline: none;
+         border: none;
+         background-color: transparent;
+         color: #fff;
+         letter-spacing: 0.8px;
+         &::-webkit-input-placeholder{
+            color: rgba(255,255,255, .9);
+         }
+      }
+      button{
+         border: none;
+         outline: none;
+         background: none;
+         width: 25px;
+         height: 25px;
+         cursor: pointer;
+         .search__icon{
+            vertical-align: bottom;
+            width: 1rem;
+            height: 1rem;
+            fill: #fff;
+            opacity: .5;
+            color: rgba(255,255,255, .9);
+         }
+      }
+   }
+}

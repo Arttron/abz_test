@@ -1,0 +1,274 @@
+// fonts: Proxima nova Regular,
+@font-face {
+    font-family: 'ProximaNova Regular';
+    src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/ProximaNova-Regular/ProximaNova-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/ProximaNova-Regular/ProximaNova-Regular.ttf')  format('truetype') /* Safari, Android, iOS */
+ //    url('./fonts/ProximaNova-Regular/ProximaNova-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+ }
+ *{
+     margin: 0;
+     padding: 0;
+    box-sizing: border-box;
+ }
+ html{
+     min-width: 795px;
+ }
+ body{
+     font-size: 16px;
+    font-family: 'ProximaNova Regular';
+ }
+ .container{
+     margin: 0 auto;
+     width: 100%;
+     min-width: 795px;
+     max-width: 1010px;
+ }
+ .sidebar__left{
+  padding-left: 18px;
+ }
+ .sidebar__right{
+ //   padding-left: 15px;
+ }
+ .sidebar__left, .sidebar__right{
+     width: 230px;
+     min-height: 100px;
+     margin: 0 15px;
+ }
+ header{
+     background-color: #87B448;
+     width: 100%;
+ }
+
+ .content-wrapper{
+     display: flex;
+     flex-direction: row;
+ 
+ }
+ .sidebar-block{
+    border-bottom: 1px solid #C7CDD9;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    &__header{
+       font-size: 14px;
+       padding-bottom: 10px;
+       float: left;
+       color: #7c8695;
+       &::after{
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+       }
+    }
+    &__see-all{
+       padding-bottom: 10px;
+       font-size: 14px;
+       text-decoration: none;
+       color: #000000;
+       float: right;
+       &::after{
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+       }
+    }
+    &__item{
+       margin-bottom: 20px;
+       color: #7c8695;
+       h4{
+          padding-bottom: 5px;
+          color: #000000;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+       }
+       p{
+          //line-height: 20px;
+          font-size: 14px;
+       }
+       img{
+          float: left;
+          margin-right: 10px;
+       }
+       &::after{
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+       }
+       a{
+          font-size: 12px;
+          text-decoration: none;
+          color: #000000;
+       }
+    }
+ }
+ .featured-companies{
+ 
+    &__header{
+ 
+    }
+    &__see-all{
+ 
+    }
+ 
+    &__item{
+       img{
+ //         float: left;
+          margin-right: 10px;
+       }
+ //      &::after{
+ //         content: "";
+ //         display: block;
+ //         height: 0;
+ //         clear: both;
+ //      }
+    }
+ 
+ }
+ .sidebar__left__copy{
+    margin-top: 20px;
+    *{
+       color: #7c8695;
+       font-size: 14px;
+       text-decoration: none;
+    }
+    p{
+       margin-bottom: 10px;
+    }
+    a:last-child{
+       margin-left: 15px;
+    }
+ }
+ .clear{
+    clear: both;
+ }
+
+$col_pre-bg : #87B448;
+$col_pre-bord : #A9FF31;
+#loader {
+  border-radius: 8px;
+  width: auto;
+  display: inline-block;
+  height: auto;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -37px;
+}
+
+.spin1 {
+  height: 20px;
+  width: 20px;
+  background: $col_pre-bg;
+  border-radius: 2px;
+  box-shadow: 0 0 20px $col_pre-bg;
+  border: 1px solid $col_pre-bord;
+  float: left;
+  margin: 0 2px;
+  opacity: 0;
+}
+
+@keyframes load1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(2)
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes load2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(2)
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes load3 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(2)
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes load4 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(2)
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes load5 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(2)
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#load1 {
+  animation: load1 1s infinite;
+  animation-delay: 0s;
+}
+
+#load2 {
+  animation: load2 1s infinite;
+  animation-delay: 0.1s;
+}
+
+#load3 {
+  animation: load3 1s infinite;
+  animation-delay: 0.2s;
+}
+
+#load4 {
+  animation: load3 1s infinite;
+  animation-delay: 0.3s;
+}
+
+#load5 {
+  animation: load3 1s infinite;
+  animation-delay: 0.4s;
+}
+
+.visible_content{
+    visibility: hidden;
+    display: none;
+}
+.preloader{
+    width: 100%;
+    height: 100vh;
+}
