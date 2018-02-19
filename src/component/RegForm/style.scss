@@ -1,0 +1,205 @@
+// fonts: Proxima nova Regular,
+// @font-face {
+//     font-family: 'ProximaNova';
+//     src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot'); /* IE9 Compat Modes */
+//     src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//     url('../fonts/ProximaNova-Regular/ProximaNova-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+//     url('../fonts/ProximaNova-Regular/ProximaNova-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+//     url('../fonts/ProximaNova-Regular/ProximaNova-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+//  }
+ *{
+     margin: 0; 
+     padding: 0;
+    box-sizing: border-box;
+ }
+ 
+ body{
+     font-size: 16px;
+    font-family: 'ProximaNova';
+ }
+ header{
+     width: 100%;
+ }
+ .header__form{
+     position: relative;
+     z-index: 100;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: flex-start;
+     height: 512px;
+     width: 100%;
+     background: url("./img/header_bg.jpg") no-repeat center 0;
+     background-size: cover;
+     padding: 20px 45px 0;
+ 
+ 
+     .header__logo{
+         //height: 43px;
+         display: block;
+         width: auto;
+         margin-top: 7px;
+         margin-left: 6px;
+     }
+     .header__content{
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         color: #fff;
+         margin-top: 125px;
+     }
+     .header__top{
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+    }
+   
+ }
+  .button,{
+         width: 145px;
+         height: 30px;
+         margin-top: 3px;
+         padding: 8px 15px;
+         color: #ffffff;
+         background-color: #87B448;
+         border-radius: 5px;
+         cursor: pointer;
+         outline: none;
+         border: none;
+     }       
+ .content{
+    
+ }
+ .form{
+     height: 830px;
+     background: url('./img/form_bg.jpg') no-repeat center;
+     position: relative;
+     z-index: 150;
+     &__input{
+         border: #C8CDD5 solid 1px;
+         border-radius: 5px;
+         color: #C8CDD5;
+         font-size: 16px;
+         line-height: 42px;
+         padding-left: 20px;
+         margin-bottom: 17px;
+     }
+     .form__desc-box{
+        display: flex;
+        justify-content: space-between;
+     }
+     .form__desc-lb{
+         width: 365px;
+     }
+     #char__count{
+         width: 365px;
+         text-align: right;
+     }
+     select{
+         color: #000;
+         height: 42px;
+     }
+    form{
+     width: 760px;
+     margin-left: -380px;
+     position: absolute;
+     z-index: 150;
+     top: -100px;
+     left: 50%;
+ }
+ }
+ .form__grop{
+     display: flex;
+     justify-content: space-between;
+     label{
+         width: 48%;
+     }
+     input{
+         display: block;
+         width: 100%;
+     }
+ }
+ .form__area{
+     resize: none;
+ }
+ .form__content{
+     
+     display: flex;
+     flex-direction: column;
+     background-color: #fff;
+     padding: 15px;
+ }
+ input[type="submit"]{
+     width: 100%;
+ }
+ 
+ .form__add-img{
+     .add-img{
+         width: 130px;
+         height: 130px;
+         background-color: #F7F7F7;
+         border: #C8CDD5 solid 1px;
+         border-radius: 5px;
+         color: #C3C3C5;
+         font-size: 12px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         p{
+             margin: 0 auto;
+             text-align: center;
+         }
+         button{
+             display: block;
+             margin: 0 auto;
+             border: none;
+             outline: none;
+             background: none;
+             cursor: pointer;
+         }
+     }
+     .form__add-d{
+         display: none;
+     }
+ }
+ footer{
+     display: flex;
+     flex-wrap: wrap;
+     height: 430px;
+     p{
+         width: 50%;
+         padding-left: 70px;
+     }
+     h3{
+         width: 100%;
+         text-align: center;
+     }
+     .footer__bottom{
+         display: flex;
+         align-items: center;
+         align-self: flex-end;
+         justify-content: space-between;
+         width: 100%;
+         border-top: 1px solid #C8CDD5;
+         height: 70px;
+         .bottom__copy{
+             margin-left: 70px;
+         }
+         .bottom__menu{
+             margin-right: 70px;
+             list-style: none;
+             .menu__item{
+                 display: inline;
+                 a{
+                     text-decoration: none;
+                     padding-left: 20px;
+                 }
+             }
+         }
+     }
+ }

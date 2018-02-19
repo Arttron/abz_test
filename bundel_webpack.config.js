@@ -13,10 +13,13 @@ console.log(PATH_SRC);
 console.log(PATH_DIST);
 
 module.exports = {
-  entry: './src/index.js',
+  entry: { 
+    index: './src/index.js',
+    register: './src/register.js'
+  },
     output: {
       path: PATH_DIST,
-      filename: 'bundle.min.js'
+      filename: '[name].js'
   },
   module: {
     rules: [
@@ -97,10 +100,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       title: 'Output Management',
+      chunks: ['index'],
       template: PATH_SRC +'/html/temp.html',
       files:{
-        css: PATH_DIST + '/css/style.css',
-          js: PATH_DIST + '/bundle.js'
+        css: PATH_DIST + '/style.css',
+          js: PATH_DIST + '/index.js'
+    }
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'reg_form.html',
+      title: 'Output Management',
+      chunks: ['register'],
+      template: PATH_SRC +'/html/reg.html',
+      files:{
+        css: PATH_DIST + '/style.css',
+          js: PATH_DIST + '/register.js'
     }
     }),
     new SpritePlugin(),

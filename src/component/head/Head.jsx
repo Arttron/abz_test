@@ -7,7 +7,7 @@ class Head extends React.Component {
     render(){
         return (
             <header className="header container">
-                <a href="#"><img className="header__logo header__logo-img" src={logo} alt="Denteez Logo"/></a>
+                <a href="./reg_form.html"><img className="header__logo header__logo-img" src={logo} alt="Denteez Logo"/></a>
                 <form action="submit" className="search__input header__search">
                         <button>
                         <svg className="search__icon">

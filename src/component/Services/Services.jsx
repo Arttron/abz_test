@@ -30,9 +30,7 @@ class Service extends React.Component {
         fetch('http://504080.com/api/v1/services/categories',{method: 'GET', headers: {Authorization:"2018264a1d150284b8f2c70b4992f313b156614b"}})
             .then(function(response) {
                 response.json().then((data)=>{
-                    console.log(data);
                     main.dataRender = data.data.map((obj)=>{
-                       // console.log(obj);
                          return (   <div key = {uuid()} className="services__item">
                                         <a className="item__link" href="#">
                                             <div className="item__img">
@@ -43,15 +41,10 @@ class Service extends React.Component {
                                     </div>
                                 );
                     });
-                    console.log(main.dataRender);
                     main.setState({
                         data: data
                     });
-                }); 
-                // application/json; charset=utf-8
-                // alert(response.status); // 200
-
-                
+                });                 
             })
             .then(function(user) {
                 // alert(user.name); // iliakan
@@ -79,11 +72,6 @@ class Service extends React.Component {
 
         return (
             <div className="content">
-                {/* <div className="content__services-head">
-                    <h2 className="content__head">Service Directory</h2>
-                    <button>Add New Service</button>
-                </div>
-                {tmplServ} */}
                 <Preloader/>
             </div>
             )

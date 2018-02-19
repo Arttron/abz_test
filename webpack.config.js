@@ -2,7 +2,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require("path");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-//var DashboardPlugin = require('webpack-dashboard/plugin');
 const SpritePlugin = require('svg-sprite-loader/plugin');
 //************ PATH ******************
 var PATH_DIST = path.resolve(__dirname, "dist");
@@ -22,10 +21,13 @@ console.log(PATH_DIST);
 // "webpack-dev-server"
 
 module.exports = {
-  entry: './src/index.js',
+  entry: { 
+    index: './src/index.js',
+    register: './src/register.js'
+  },
     output: {
       path: PATH_DIST,
-      filename: 'bundle.js'
+      filename: '[name].js'
   },
   devServer: {
       contentBase: PATH_DIST,
@@ -110,13 +112,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       title: 'Output Management',
+      chunks: ['index'],
       template: PATH_SRC +'/html/temp.html',
       files:{
-        css: PATH_DIST + '/css/style.css',
-          js: PATH_DIST + '/bundle.js'
+        css: PATH_DIST + '/style.css',
+          js: PATH_DIST + '/index.js'
+    }
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'reg_form.html',
+      title: 'Output Management',
+      chunks: ['register'],
+      template: PATH_SRC +'/html/reg.html',
+      files:{
+        css: PATH_DIST + '/style.css',
+          js: PATH_DIST + '/register.js'
     }
     }),
     new SpritePlugin(),
-    //new DashboardPlugin()
   ]
 };
