@@ -82,11 +82,38 @@
      &__input{
          border: #C8CDD5 solid 1px;
          border-radius: 5px;
-         color: #C8CDD5;
+         color: #000;
          font-size: 16px;
          line-height: 42px;
          padding-left: 20px;
          margin-bottom: 17px;
+        }
+        &__input::placeholder{
+            color: #C8CDD5;
+
+     }
+     &__add-img{
+        display: flex;
+        flex-wrap: wrap;
+        &>img{
+            padding-right: 5px;
+        }
+     }
+     .add-img__item{
+        position: relative; 
+        img{
+            padding-right: 5px;
+        }
+        input{
+            background-color: brown;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+         }
      }
      .form__desc-box{
         display: flex;
@@ -125,6 +152,8 @@
  }
  .form__area{
      resize: none;
+     line-height: 1rem;
+     padding-top: 5px;
  }
  .form__content{
      
@@ -139,6 +168,7 @@
  
  .form__add-img{
      .add-img{
+         position: relative;
          width: 130px;
          height: 130px;
          background-color: #F7F7F7;
@@ -150,17 +180,23 @@
          flex-direction: column;
          align-items: center;
          justify-content: center;
+         overflow: hidden;
          p{
              margin: 0 auto;
              text-align: center;
          }
-         button{
+         &__button{
+             z-index: 100;
              display: block;
              margin: 0 auto;
              border: none;
              outline: none;
              background: none;
              cursor: pointer;
+         }
+         img{
+             z-index: 0;
+            position: absolute;
          }
      }
      .form__add-d{

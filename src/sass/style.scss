@@ -1,6 +1,6 @@
 // fonts: Proxima nova Regular,
 @font-face {
-    font-family: 'ProximaNova Regular';
+    font-family: 'ProximaNova';
     src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot'); /* IE9 Compat Modes */
     src: url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
     url('../fonts/ProximaNova-Regular/ProximaNova-Regular.woff') format('woff'), /* Pretty Modern Browsers */
@@ -17,7 +17,7 @@
  }
  body{
      font-size: 16px;
-    font-family: 'ProximaNova Regular';
+    font-family: 'ProximaNova';
  }
  .container{
      margin: 0 auto;
