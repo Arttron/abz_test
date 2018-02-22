@@ -125,29 +125,29 @@ class RegForm extends React.Component{
             <div>
                 {Header}
                 <div className="form">
-                    <form action="./file-load.php" encType="multipart/form-data" method="post" >
+                    <form action="http://504080.com/api/v1/support" encType="multipart/form-data" method="post" >
                         <div className="form__content">
                                 <p className='form__content__mark-text'>Fields marked “*” are required</p>
-                                <label htmlFor="e_type">Enquiry Type *</label>
-                                <select defaultValue= 'Other' onClick={this.onSelect} className="form__input" name="e_type" id="e_type">
+                                <label htmlFor="enquiry_type">Enquiry Type *</label>
+                                <select defaultValue= 'Other' onClick={this.onSelect} className="form__input" name="enquiry_type" id="e_type">
                                     {this.state.data}
                                 </select>
                                 <input required className={this.state.disableInput + ' form__input'} type="text" name="oth_type" id="oth_type" placeholder="Other" disabled={this.state.disableInput}/>
                                 <div className="form__grop">
-                                    <label htmlFor="name">Name *
-                                        <input className="form__input" type="text" id="name" name="name" placeholder="Dentist"/>
+                                    <label htmlFor="user_name">Name *
+                                        <input className="form__input" type="text" id="name" name="user_name" placeholder="Dentist"/>
                                     </label>
                                     <label htmlFor="email">Email *
                                             <input className="form__input" type="email" name="email" id="email" required placeholder="rechelm@gmail.com"/>
                                     </label>
                                 </div>
-                                <label htmlFor="subj">Subject *</label>
-                                <input className="form__input" type="text" name="subj" required id="subj"/>
+                                <label htmlFor="subject">Subject *</label>
+                                <input className="form__input" type="text" name="subject" required id="subj"/>
                                 <p className="form__desc-box">
-                                    <label className="form__desc-lb" htmlFor="desc">Description *</label>
+                                    <label className="form__desc-lb" htmlFor="description">Description *</label>
                                     <span id="char__count">({this.state.descCount}/1000)</span>
                                 </p>
-                                <textarea onChange={this.onChaingDesc} className="form__input form__area" name="desc" id="desc" required maxLength='1000' rows='9'></textarea>
+                                <textarea onChange={this.onChaingDesc} className="form__input form__area" name="description" id="desc" required maxLength='1000' rows='9'></textarea>
                                 <div className="form__add-img" id="add-img-1">
                                     <div id="add-img_1" className="add-img">
                                         <label htmlFor="add-form_1" className="add-img__button" id="add-btn_1">Add photo</label>
