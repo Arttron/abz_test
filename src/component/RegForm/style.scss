@@ -19,17 +19,25 @@
  }
  header{
      width: 100%;
- }
- .header__form{
-     position: relative;
-     z-index: 100;
-     display: flex;
+    }
+
+    .header__wrapper{
+        width: 100;
+        background: url("./img/header_bg.jpg") no-repeat center 0;
+        background-size: cover;
+    }
+    .header__form{
+        margin: 0 auto;
+        position: relative;
+        z-index: 100;
+        display: flex;
      flex-direction: column;
      justify-content: flex-start;
      align-items: flex-start;
      height: 512px;
      width: 100%;
-     background: url("./img/header_bg.jpg") no-repeat center 0;
+     min-width: 970px;
+     max-width: 1440px;
      background-size: cover;
      padding: 20px 45px 0;
  
@@ -42,13 +50,23 @@
          margin-left: 6px;
      }
      .header__content{
-         width: 100%;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         color: #fff;
-         margin-top: 125px;
+        font-family: 'ProximaNova-light';
+        letter-spacing: 2px;
+        color:#f3f4f6;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 125px;
+        h1{
+            font-size: 44px;
+            margin-bottom: 8px;
+         }
+         p{
+            font-size: 22px;
+            letter-spacing: -0.9px;
+         }
      }
      .header__top{
      width: 100%;
@@ -60,10 +78,10 @@
    
  }
   .button,{
-         width: 145px;
-         height: 30px;
+         width: 107px;
+         height: 25px;
          margin-top: 3px;
-         padding: 8px 15px;
+         //padding: 8px 15px;
          color: #ffffff;
          background-color: #87B448;
          border-radius: 5px;
@@ -76,7 +94,7 @@
  }
  .form{
      height: 830px;
-     background: url('./img/form_bg.jpg') no-repeat center;
+     background: url('./img/form_bg.jpg') repeat-x center;
      position: relative;
      z-index: 150;
      &__input{
@@ -87,6 +105,14 @@
          line-height: 42px;
          padding-left: 20px;
          margin-bottom: 17px;
+         height: 50px;
+         box-sizing: border-box;
+         margin-top: 5px;
+         .disabled{
+            pointer-events:none;
+            color:#AAA;
+            background:#F5F5F5;
+         }
         }
         &__input::placeholder{
             color: #C8CDD5;
@@ -148,22 +174,35 @@
      input{
          display: block;
          width: 100%;
+         height: 50px;
+         box-sizing: border-box;
+         margin-top: 5px;
      }
  }
  .form__area{
      resize: none;
      line-height: 1rem;
      padding-top: 5px;
+     height: auto;
  }
  .form__content{
-     
+     border-radius: 7px;
+     border: 1px solid #e0e2e6;
+     margin-bottom: 20px;
      display: flex;
      flex-direction: column;
      background-color: #fff;
      padding: 15px;
+
+     &__mark-text{
+        color: #c1c1c1;
+        font-size: 16px;
+        margin-bottom: 20px;
+     }
  }
  input[type="submit"]{
      width: 100%;
+     height: 50px;
  }
  
  .form__add-img{
@@ -204,38 +243,60 @@
      }
  }
  footer{
+
+ }
+ .footer{
+     padding-top: 55px;
      display: flex;
      flex-wrap: wrap;
      height: 430px;
+     width: 100%;
+     min-width: 970px;
+     max-width: 1440px;
+     margin: 0 auto;
      p{
-         width: 50%;
-         padding-left: 70px;
-     }
-     h3{
-         width: 100%;
-         text-align: center;
-     }
-     .footer__bottom{
-         display: flex;
-         align-items: center;
-         align-self: flex-end;
-         justify-content: space-between;
-         width: 100%;
-         border-top: 1px solid #C8CDD5;
-         height: 70px;
+        font-family: 'ProximaNova-light';
+        width: 50%;
+        padding-left: 70px;
+        font-size: 16px;
+        color: #7c8695;
+    }
+    h3{
+        font-family: 'ProximaNova-light';
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+        color: #1c2534;
+    }
+    .footer__bottom{
+        display: flex;
+        align-items: center;
+        align-self: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        border-top: 1px solid #C8CDD5;
+        height: 70px;
          .bottom__copy{
              margin-left: 70px;
-         }
-         .bottom__menu{
-             margin-right: 70px;
-             list-style: none;
-             .menu__item{
-                 display: inline;
-                 a{
+             color: #7c8695;
+             font-size: 12px;
+             
+            }
+            .bottom__menu{
+            margin-right: 70px;
+            list-style: none;
+            &__item{
+                display: inline;
+                a{
+                    color: #7c8695;
                      text-decoration: none;
                      padding-left: 20px;
+                     &:hover{
+                        text-decoration: underline;
+                     }
                  }
              }
          }
      }
  }
+

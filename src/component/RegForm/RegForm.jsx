@@ -9,12 +9,15 @@ import Footer from './template/footer.jsx';
 import _ from 'lodash';
 import uuid from "uuid/v1";
 
+
 class RegForm extends React.Component{
     constructor(props){
         super(props);
         this.dataSelect = [];
         this.descCount = 0;
         this.disableInput = '';
+        this.fileLoad;
+        this.fileList;
         this.state = {
             'data' : [<option  key={uuid()}> Other </option>],
             'descCount' : 0,
@@ -27,34 +30,51 @@ class RegForm extends React.Component{
         this.onFileLoad = this.onFileLoad.bind(this);
         this.onHendleFile = this.onHendleFile.bind(this);
         this.onDelImg = this.onDelImg.bind(this);
+        this.listPreviewImg = this.listPreviewImg.bind(this);
     }
     onFileLoad(event){
         
     }
     onDelImg(event){
         let imgTagArr = this.state.loadingImg.map((e)=>e);
-        console.log(imgTagArr +' '+ event.target.name);
+        console.log(this.fileLoad.files);
+            this.fileLoad.files[event.target.name] = '';
+        console.log(this.fileLoad.files);
         imgTagArr.splice(event.target.name, 1, '');
         console.log(imgTagArr);
         this.setState({
             loadingImg : imgTagArr
         });
     }
+    listPreviewImg(imgList){
+
+    }
     onHendleFile(event){
         if(event.target.files.length > 0){
-            let imgTagArr = [];
-            for(let i=0; i < event.target.files.length; i++){
-                imgTagArr[i] = (
-                    <div key={uuid()} className='add-img__item'>
-                        <input type="button" onClick={this.onDelImg} value="del" name={i}/>   
-                        <img width='130' height='130' src={window.URL.createObjectURL(event.target.files[i])} alt=''/>
-                    </div>
-                );    
+            if(event.target.files[0].size > 5000000){
+                alert("Size file is Large");
+                return 1;
             }
-            console.log(imgTagArr);
-            this.setState({
-                loadingImg : imgTagArr
-            });
+            let imgCon;
+            this.fileList = event.target.files;
+            let imgTest = new Image();
+            let src = window.URL.createObjectURL(event.target.files[0]);
+            imgTest.src = window.URL.createObjectURL(event.target.files[0]);
+            imgTest.onload = (e)=>{
+                if(imgTest.width > 300 || imgTest.height>300){
+                    alert("Size file is Large");
+                    return 1;
+                }
+                if(imgTest.width > imgTest.height){
+                    imgCon = (<img width='auto' height="130" src={src} alt=""/>);
+                }else{
+                    imgCon = (<img width='130' height='auto' src={src} alt=""/>);
+                }
+                console.log(imgTest.width);
+                this.setState({
+                    loadImg_1: imgCon
+                });
+            }
         }else{
             this.setState({
                 loadingImg : (<img/>)
@@ -86,13 +106,11 @@ class RegForm extends React.Component{
             .then(function(response) {
                 response.json().then((data)=>{
                     main.dataSelect = data;
-                    console.log(main.dataSelect);
                     main.dataSelect = _.map(data.data,(e)=>{
                         return (
                             <option key={uuid()}>{ e.name}</option>
                         );
                     });
-                    console.log(main.dataSelect);
                     main.setState({
                         data: main.dataSelect
                     });
@@ -107,35 +125,35 @@ class RegForm extends React.Component{
             <div>
                 {Header}
                 <div className="form">
-                    <form action="submit" encType="multipart/form-data">
+                    <form action="./file-load.php" encType="multipart/form-data" method="post" >
                         <div className="form__content">
+                                <p className='form__content__mark-text'>Fields marked “*” are required</p>
                                 <label htmlFor="e_type">Enquiry Type *</label>
                                 <select defaultValue= 'Other' onClick={this.onSelect} className="form__input" name="e_type" id="e_type">
                                     {this.state.data}
                                 </select>
-                                <input className="form__input" type="text" name="oth_type" id="oth_type" placeholder="Other" disabled={this.state.disableInput}/>
+                                <input required className={this.state.disableInput + ' form__input'} type="text" name="oth_type" id="oth_type" placeholder="Other" disabled={this.state.disableInput}/>
                                 <div className="form__grop">
                                     <label htmlFor="name">Name *
                                         <input className="form__input" type="text" id="name" name="name" placeholder="Dentist"/>
                                     </label>
                                     <label htmlFor="email">Email *
-                                            <input className="form__input" type="email" name="email" id="email" placeholder="rechelm@gmail.com"/>
+                                            <input className="form__input" type="email" name="email" id="email" required placeholder="rechelm@gmail.com"/>
                                     </label>
                                 </div>
                                 <label htmlFor="subj">Subject *</label>
-                                <input className="form__input" type="text" name="subj" id="subj"/>
+                                <input className="form__input" type="text" name="subj" required id="subj"/>
                                 <p className="form__desc-box">
                                     <label className="form__desc-lb" htmlFor="desc">Description *</label>
                                     <span id="char__count">({this.state.descCount}/1000)</span>
                                 </p>
-                                <textarea onChange={this.onChaingDesc} className="form__input form__area" name="desc" id="desc" maxLength='1000' rows='12'></textarea>
+                                <textarea onChange={this.onChaingDesc} className="form__input form__area" name="desc" id="desc" required maxLength='1000' rows='9'></textarea>
                                 <div className="form__add-img" id="add-img-1">
-                                    {this.state.loadingImg}
                                     <div id="add-img_1" className="add-img">
                                         <label htmlFor="add-form_1" className="add-img__button" id="add-btn_1">Add photo</label>
                                         <p>Minimum size of 300x300 jpeg ipg png 5 MB</p>
-                                        <img width='130' height="130" src={this.state.loadImg_1} alt=""/>
-                                        <input id="add-form_1" onChange={this.onHendleFile} className="form__add-d" type="file" name="photo" multiple accept="image/*,image/jpeg"></input>
+                                        {this.state.loadImg_1}
+                                        <input accept="image/jpeg, image/png" ref={(input) => { this.fileLoad = input; }} id="add-form_1" onChange={this.onHendleFile} className="form__add-d" type="file" name="photo"></input>
                                     </div>
                                 </div>    
                             </div>

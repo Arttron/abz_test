@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../img/services/pic_1.png';
 import _ from "lodash";
 import uuid from "uuid/v1";
